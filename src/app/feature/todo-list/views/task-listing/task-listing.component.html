@@ -1,0 +1,28 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <ng-container *ngIf="!vm.loading">
+    <ng-container *ngIf="vm.todoItems.length == 0; else taskList">
+      <p>Nothing to show, please add a task</p>
+    </ng-container>
+
+    <ng-template #taskList>
+      <div class="grid">
+        <div class="grid-col--6">
+          <h2>Open tasks</h2>
+          <ng-container *ngFor="let item of vm.todoItems; let i = index">
+            <app-task-item [itemDetails]="item" *ngIf="item.statusId !== TodoItemStatusConstant.COMPLETE"></app-task-item>
+          </ng-container>
+
+          <button mat-flat-button color="primary" routerLink="create">Add new task</button><br /><br />
+        </div>
+
+
+        <div class="grid-col--6">
+          <h2>Complete tasks</h2>
+          <ng-container *ngFor="let item of vm.todoItems; let i = index">
+            <app-task-item [itemDetails]="item" *ngIf="item.statusId === TodoItemStatusConstant.COMPLETE"></app-task-item>
+          </ng-container>
+        </div>
+      </div>
+    </ng-template><br />
+  </ng-container>
+</ng-container>

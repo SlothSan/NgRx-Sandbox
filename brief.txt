@@ -1,0 +1,90 @@
+NgRx To do List App
+
+Create a simple to do list application using Angular 16 and NgRx to manage state. This project will serve as a learning
+tool for junior developers to understand the concepts of state management, actions, reducers, selectors, and effects in
+NgRx. By following this project brief, junior developers will have the opportunity to gain hands-on experience with
+Angular 16, NgRx, and fundamental concepts of state management in modern web applications.
+
+
+Project Deliverables:
+A fully functional NgRx to do List application. Documentation that includes setup instructions, project structure
+overview, and a brief explanation of how NgRx is used in the project.
+
+
+Technical Requirements:
+- Angular 16 should be used as the front-end framework.
+
+- NgRx should be used for state management.
+
+- Create components wherever possible, for example buttons should be made into a component.
+
+- Implement lazy loading for routing to improve application performance.
+
+- Ensure a consistent and clean coding style, following best practices and Angular style guidelines.
+
+- Utilise Angular Material or another UI library for styling and components.
+
+- Provide clear documentation for the codebase, including comments and README instructions.
+
+
+
+
+
+Project Objectives:
+- To do List Display: Users should be able to see a list of to do items. Each item should display the task description
+  and its completion status (e.g., checkbox).
+
+- Task CRUD Operations:
+  - Add Task: Users can add new to do items to the list. Input validation should ensure that empty tasks cannot be added.
+
+  - Delete Task: Users can delete to do item from the list, providing a way to remove completed or unwanted tasks.
+
+  - Edit Task: Users can update existing items, providing a way to change the title, description and status.
+
+- Mark as important: Users can mark to do item as important, this should update the stying with a red border and bring
+  the item to the top of the list (you may need to add an order property to TodoListItem).
+
+- Toggle To do: Users can mark to do item as completed or uncompleted by clicking on a checkbox or a button associated
+  with each to do item.
+
+- Store with NgRx: Use NgRx for state management. Create a store to manage the list of todos and ensure that state
+  changes are handled through actions, reducers, and selectors.
+
+
+
+
+
+Optional Enhancements:
+- Improve listing page:
+  - Filtering: Implement filtering options to allow users to view all todos, completed todos, or active (uncompleted)
+    todos. This can be achieved using filter buttons (e.g., All, Active, Completed).
+
+  - Search: Implement a search bar to enable users to find specific tasks.
+
+- Task Due date & time: Add a date/time picker, as this project uses Angular Material you can use the mat component. You
+  can then add styling for items that are overdue.
+
+- LocalStorage/ Fire DB Integration: Save and load to do items from the browser's localStorage to demonstrate
+  persisting data.
+
+- Drag and Drop Reordering: Allow users to reorder to do items by dragging and dropping them.
+
+- Offline Service Worker: This application could work offline, look into Angular Service worker and see if you can
+  get it working offline.
+
+
+
+
+
+Further reading:
+- Rockpool NgRx guide [https://dev.azure.com/rockpooldigital/Rockpool/_wiki/wikis/Rockpool.wiki/1543/NgRx-Best-Practice]
+
+- NgRx [https://ngrx.io/]
+    - Actions [https://ngrx.io/guide/store/actions]
+    - Effects [https://ngrx.io/guide/effects]
+    - Reducers [https://ngrx.io/guide/store/reducers]
+    - Selectors [https://ngrx.io/guide/store/selectors]
+
+- Angular Material [https://material.angular.io/]
+
+- BEM naming convention [https://getbem.com/naming/]

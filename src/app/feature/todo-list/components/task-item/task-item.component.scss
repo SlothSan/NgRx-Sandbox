@@ -1,0 +1,59 @@
+.item__status--new mat-chip {
+  background-color: #EABA6B;
+}
+
+.item__status--in-progress mat-chip {
+  background-color: #42CAFD;
+}
+
+.item__status--blocked mat-chip {
+  background-color: #E71D36;
+}
+
+.item__status--closed {
+  opacity: 0.3;
+
+  mat-chip {
+    background-color: #65B891;
+  }
+}
+
+.item__status--cancelled mat-chip {
+  background-color: #F7567C;
+}
+
+.item {
+  width: 70%;
+  margin-bottom: 20px;
+
+  .item__menu {
+    padding: 0;
+    height: 36px;
+    width: 36px;
+  }
+
+  mat-card {
+    border: 1px solid;
+    box-shadow: none;
+    min-height: 180px;
+
+    .item__description {
+      margin: 20px 0 10px 0;
+    }
+
+    .item__actions {
+      padding: 16px;
+
+      > * {
+        margin-right: 10px;
+      }
+    }
+
+    .item__status {
+      right: -15px;
+      top: -15px;
+      position: absolute;
+    }
+  }
+}
+
