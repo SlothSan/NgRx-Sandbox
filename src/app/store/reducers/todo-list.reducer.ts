@@ -43,9 +43,7 @@ const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
       todoItems: state.todoItems.map((item) => {
         if (item.id === action.itemId) {
           return {
-            id: item.id,
-            title: item.title,
-            description: item.description,
+            ...item,
             statusId: TodoItemStatusConstant.COMPLETE
           }
         } else {
