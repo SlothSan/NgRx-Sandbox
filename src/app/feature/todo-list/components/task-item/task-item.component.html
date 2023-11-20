@@ -15,11 +15,11 @@
       >{{ itemDetails?.statusId }}</mat-chip>
 
       <mat-card-header>
-        <mat-card-title class="item__title">{{ itemDetails?.title }}</mat-card-title>
+        <mat-card-title class="item__title">{{ itemDetails?.taskName }}</mat-card-title>
       </mat-card-header>
 
       <mat-card-content class="item__description">
-        <p>{{ itemDetails?.description }}</p>
+        <p>{{ itemDetails?.taskDescription }}</p>
       </mat-card-content>
 
       <mat-card-actions class="item__actions" *ngIf="itemDetails?.statusId !== TodoItemStatusConstant.COMPLETE">
