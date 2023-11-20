@@ -27,12 +27,12 @@ export class TaskCreateComponent implements OnInit {
     })
   }
   addTask(): void {
-    // Get Form values
+    const taskName = this.taskNameFormControl.value;
+    const taskDescription = this.taskDescriptionFormControl.value;
 
     const todoItemDetails: TodoListItem = {
-      // title: this.form.get('title').value,
-      title: this.taskNameFormControl.value,
-      description: 'test...',
+      taskName: taskName,
+      taskDescription: taskDescription,
       statusId: TodoItemStatusConstant.NEW,
       id: uuid.v4()
     };

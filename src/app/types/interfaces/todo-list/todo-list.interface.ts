@@ -3,6 +3,6 @@ import {TodoItemStatusConstant} from "../../constants/todo-list/todo-item-status
 export interface TodoListItem {
   id: string;
   statusId: TodoItemStatusConstant;
-  title: string;
-  description: string;
+  taskName: string;
+  taskDescription: string;
 }

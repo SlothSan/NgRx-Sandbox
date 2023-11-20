@@ -6,8 +6,5 @@
   padding: 16px;
   mat-form-field {
     width: 100%;
-    &:not(:first-of-type) {
-      padding-top: 16px;
-    }
   }
 }

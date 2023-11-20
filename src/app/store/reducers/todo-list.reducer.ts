@@ -17,14 +17,14 @@ const initialState: TodoListPageState = {
     {
       id: uuid.v4(),
       statusId: TodoItemStatusConstant.NEW,
-      title: 'Time log',
-      description: 'Ensure all completed work is logged',
+      taskName: 'Time log',
+      taskDescription: 'Ensure all completed work is logged',
     },
     {
       id: uuid.v4(),
       statusId: TodoItemStatusConstant.COMPLETE,
-      title: 'QA Handover',
-      description: 'Handover story #22222 to Tom',
+      taskName: 'QA Handover',
+      taskDescription: 'Handover story #22222 to Tom',
     },
   ]
 };
