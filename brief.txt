@@ -31,7 +31,7 @@ Technical Requirements:
 
 
 Project Objectives:
-- To do List Display: Users should be able to see a list of to do items. Each item should display the task taskDescription
+- To do List Display: Users should be able to see a list of to do items. Each item should display the taskName & taskDescription
   and its completion status (e.g., checkbox).
 
 - Task CRUD Operations:
