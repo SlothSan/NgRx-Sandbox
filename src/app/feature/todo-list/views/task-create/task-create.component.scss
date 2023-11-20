@@ -1,0 +1,13 @@
+.card {
+  width: 50%;
+  border: 1px solid;
+  box-shadow: none;
+  min-height: 180px;
+  padding: 16px;
+  mat-form-field {
+    width: 100%;
+    &:not(:first-of-type) {
+      padding-top: 16px;
+    }
+  }
+}

@@ -1,3 +1,22 @@
-<h1>Create a task</h1>
+<h1>Create a task!</h1>
+<mat-card class="card">
+  <form class="create-form">
+    <mat-form-field>
+      <mat-label>Task name</mat-label>
+      <input type="text" matInput [formControl]="taskNameFormControl" placeholder="Enter a task name">
+      <mat-error *ngIf="taskNameFormControl.hasError('required')">
+        Please enter a task name!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Task description</mat-label>
+      <textarea matInput [formControl]="taskDescriptionFormControl" placeholder="Enter a task description"></textarea>
+      <mat-error *ngIf="taskDescriptionFormControl.hasError('required')">
+        Please enter a task description!
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-card>
+
 
 <button mat-flat-button color="accent" (click)="addTask()">Create task</button>
