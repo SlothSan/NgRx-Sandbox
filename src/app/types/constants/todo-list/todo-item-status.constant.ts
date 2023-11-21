@@ -1,3 +1,5 @@
+import {GenericKeyValueInterface} from "../../interfaces/shared/generic-keyvalue.interface";
+
 export class TodoItemStatusConstant {
   public static NEW: string = 'New';
   public static IN_PROGRESS: string = 'In progress';
