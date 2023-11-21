@@ -58,7 +58,7 @@ const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
       todoItems: state.todoItems.filter((curr) => curr.id !== action.itemId)
     }
   }),
-  on(Actions.changeTodoItemStatus, (state: TodoListPageState, action: {itemId: string, newStatus: string}) => {
+  on(Actions.changeTodoItemStatusClicked, (state: TodoListPageState, action: {itemId: string, newStatus: string}) => {
     return {
       ...state,
       todoItems: state.todoItems.map((curr) => {
@@ -71,7 +71,7 @@ const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
       })
     }
   }),
-  on(Actions.updateTodoItemDetails, (state: TodoListPageState, action: {itemId: string, taskName: string, taskDescription: string}) => {
+  on(Actions.updateTodoItemDetailsClicked, (state: TodoListPageState, action: {itemId: string, taskName: string, taskDescription: string}) => {
     return {
       ...state,
       todoItems: state.todoItems.map((curr) => {

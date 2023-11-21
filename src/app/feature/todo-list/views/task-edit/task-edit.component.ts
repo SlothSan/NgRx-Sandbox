@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import * as TodoActions from './../../../../store/actions/todo-list.actions'
 import {selectTodoItemById} from "./task-edit.selector";
 import {TodoListItem} from "../../../../types/interfaces/todo-list/todo-list.interface";
@@ -15,7 +15,7 @@ export class TaskEditComponent implements OnInit {
   public form?: FormGroup;
   public taskId: string;
   public vm$?: TodoListItem | undefined
-  constructor(private store: Store, private route: ActivatedRoute, private router: Router) {
+  constructor(private store: Store, private route: ActivatedRoute) {
    this.taskId = this.route.snapshot.paramMap.get('id') || '';
     this.store.select(selectTodoItemById(this.taskId)).subscribe((item) => {
       this.vm$ = item;
@@ -37,8 +37,7 @@ export class TaskEditComponent implements OnInit {
     const itemId = this.taskId
     const taskName = this.taskNameFormControl.value;
     const taskDescription = this.taskDescriptionFormControl.value;
-    this.store.dispatch(TodoActions.updateTodoItemDetails({itemId, taskName, taskDescription}))
-    this.router.navigate(['/'])
+    this.store.dispatch(TodoActions.updateTodoItemDetailsClicked({itemId, taskName, taskDescription}))
   }
   get taskNameFormControl(): FormControl {
     return this.form?.get('taskName') as FormControl;

@@ -8,8 +8,8 @@ export const completeTodoItemClicked = createAction('[TODO] Mark To-do Item As C
 export const removeTodoItemClicked = createAction('[TODO] Remove To-do Item From To-do List', props<{ itemId: string}>())
 
 // Edit item clicked
-export const changeTodoItemStatus = createAction('[TODO] Change To-do Item Status', props<{ itemId: string, newStatus: string }>())
+export const changeTodoItemStatusClicked = createAction('[TODO] Change To-do Item Status', props<{ itemId: string, newStatus: string }>())
 
-export const updateTodoItemDetails = createAction('[TODO] Update To-do Item Details', props<{ itemId: string, taskName: string, taskDescription: string }>())
+export const updateTodoItemDetailsClicked = createAction('[TODO] Update To-do Item Details', props<{ itemId: string, taskName: string, taskDescription: string }>())
 
 // Mark as important clicked
