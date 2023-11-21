@@ -52,6 +52,12 @@ const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
       })
     }
   }),
+  on(Actions.removeTodoItemClicked, (state: TodoListPageState, action: { itemId: string}) => {
+    return {
+      ...state,
+      todoItems: state.todoItems.filter((curr) => curr.id !== action.itemId)
+    }
+  })
 );
 
 export function reducer(state: TodoListPageState | undefined, action: Action): TodoListPageState {

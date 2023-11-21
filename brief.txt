@@ -35,9 +35,9 @@ Project Objectives:
   and its completion status (e.g., checkbox).
 
 - Task CRUD Operations:
-  - Add Task: Users can add new to do items to the list. Input validation should ensure that empty tasks cannot be added.
+  - Add Task: Users can add new to do items to the list. Input validation should ensure that empty tasks cannot be added. - Done.
 
-  - Delete Task: Users can delete to do item from the list, providing a way to remove completed or unwanted tasks.
+  - Delete Task: Users can delete to do item from the list, providing a way to remove completed or unwanted tasks. - Done
 
   - Edit Task: Users can update existing items, providing a way to change the taskName, taskDescription and status.
 
