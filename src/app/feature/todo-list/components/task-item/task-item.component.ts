@@ -18,6 +18,10 @@ export class TaskItemComponent implements OnInit {
 
   }
 
+  public removeItem(): void {
+    this.store.dispatch(TodoActions.removeTodoItemClicked({ itemId: this.itemDetails.id }))
+  }
+
   public completeItem(): void {
     this.store.dispatch(TodoActions.completeTodoItemClicked({ itemId: this.itemDetails.id }))
   }

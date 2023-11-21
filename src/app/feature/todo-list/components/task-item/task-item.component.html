@@ -22,15 +22,16 @@
         <p>{{ itemDetails?.taskDescription }}</p>
       </mat-card-content>
 
-      <mat-card-actions class="item__actions" *ngIf="itemDetails?.statusId !== TodoItemStatusConstant.COMPLETE">
-        <button mat-flat-button color="accent" (click)="completeItem()">Complete task</button>
+      <mat-card-actions class="item__actions">
+        <button mat-flat-button color="accent" *ngIf="itemDetails?.statusId !== TodoItemStatusConstant.COMPLETE"
+                (click)="completeItem()">Complete task</button>
 
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
           <mat-icon>more_vert</mat-icon>
         </button>
 
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button mat-menu-item (click)="removeItem()">
             <mat-icon>delete</mat-icon>
             <span>Remove Task</span>
           </button>
