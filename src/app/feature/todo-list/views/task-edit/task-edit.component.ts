@@ -18,7 +18,6 @@ export class TaskEditComponent implements OnInit {
   constructor(private store: Store, private route: ActivatedRoute, private router: Router) {
    this.taskId = this.route.snapshot.paramMap.get('id') || '';
     this.store.select(selectTodoItemById(this.taskId)).subscribe((item) => {
-      console.log(item);
       this.vm$ = item;
     })
   }
