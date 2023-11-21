@@ -11,11 +11,22 @@ import {Store} from "@ngrx/store";
 })
 export class TaskItemComponent implements OnInit {
   @Input() public itemDetails!: TodoListItem;
+  protected readonly TodoItemStatusConstant = TodoItemStatusConstant;
+  protected TodoItemStatuses: {key: string, value: string}[];
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) {
+    this.TodoItemStatuses = this.TodoItemStatusConstant.statuses()
+  }
 
   ngOnInit() {
+    this.TodoItemStatuses = this.returnFilteredStatuses();
+  }
 
+  public returnFilteredStatuses(): { key: string, value: string }[] {
+    console.log('Hello');
+    return this.TodoItemStatuses.filter((curr) => {
+      return curr.value !== this.itemDetails?.statusId;
+    })
   }
 
   public removeItem(): void {
@@ -26,5 +37,4 @@ export class TaskItemComponent implements OnInit {
     this.store.dispatch(TodoActions.completeTodoItemClicked({ itemId: this.itemDetails.id }))
   }
 
-  protected readonly TodoItemStatusConstant = TodoItemStatusConstant;
 }
