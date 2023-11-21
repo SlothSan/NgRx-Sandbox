@@ -70,6 +70,20 @@ const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
         }
       })
     }
+  }),
+  on(Actions.updateTodoItemDetails, (state: TodoListPageState, action: {itemId: string, taskName: string, taskDescription: string}) => {
+    return {
+      ...state,
+      todoItems: state.todoItems.map((curr) => {
+        if(curr.id !== action.itemId) return curr;
+        else {
+          let updated = JSON.parse(JSON.stringify(curr));
+          updated.taskName = action.taskName;
+          updated.taskDescription = action.taskDescription;
+          return updated;
+        }
+      })
+    }
   })
 );
 

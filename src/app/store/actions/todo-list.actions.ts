@@ -10,4 +10,6 @@ export const removeTodoItemClicked = createAction('[TODO] Remove Item From To-do
 // Edit item clicked
 export const changeTodoItemStatus = createAction('[TODO] Change Item Status', props<{ itemId: string, newStatus: string }>())
 
+export const updateTodoItemDetails = createAction('[TODO] Update Todo Item Details', props<{ itemId: string, taskName: string, taskDescription: string }>())
+
 // Mark as important clicked

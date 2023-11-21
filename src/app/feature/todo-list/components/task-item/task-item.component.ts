@@ -3,6 +3,7 @@ import {TodoListItem} from "../../../../types/interfaces/todo-list/todo-list.int
 import {TodoItemStatusConstant} from "../../../../types/constants/todo-list/todo-item-status.constant";
 import * as TodoActions from "../../../../store/actions/todo-list.actions";
 import {Store} from "@ngrx/store";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-task-item',
@@ -14,7 +15,7 @@ export class TaskItemComponent implements OnInit {
   protected readonly TodoItemStatusConstant = TodoItemStatusConstant;
   protected TodoItemStatuses: {key: string, value: string}[];
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private router: Router) {
     this.TodoItemStatuses = this.TodoItemStatusConstant.statuses()
   }
 
@@ -39,6 +40,10 @@ export class TaskItemComponent implements OnInit {
 
   public updateStatus(statusValue: string): void {
     this.store.dispatch(TodoActions.changeTodoItemStatus({itemId: this.itemDetails.id, newStatus: statusValue}))
+  }
+
+  public editTaskInfo(): void {
+    this.router.navigate(['/edit', this.itemDetails.id])
   }
 
 }

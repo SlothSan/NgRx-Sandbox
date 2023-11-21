@@ -12,6 +12,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import { TaskEditComponent } from './views/task-edit/task-edit.component';
 
 
 
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   declarations: [
     TaskListingComponent,
     TaskCreateComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    TaskEditComponent
   ],
   exports: [
     TaskListingComponent,

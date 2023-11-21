@@ -37,7 +37,11 @@
           </button>
           <button [matMenuTriggerFor]="editTaskMenu" mat-menu-item>
             <mat-icon>edit</mat-icon>
-            <span>Edit Task Status</span>
+            <span>Change Task Status</span>
+          </button>
+          <button (click)="editTaskInfo()" mat-menu-item>
+            <mat-icon>edit_document</mat-icon>
+            <span>Update Task Details</span>
           </button>
           <button mat-menu-item>
             <mat-icon>priority_high</mat-icon>
@@ -45,7 +49,9 @@
           </button>
         </mat-menu>
         <mat-menu #editTaskMenu="matMenu">
-          <button mat-menu-item *ngFor="let status of TodoItemStatuses" (click)="updateStatus(status.value)">{{status.value}}</button>
+          <button mat-menu-item *ngFor="let status of TodoItemStatuses" (click)="updateStatus(status.value)">
+            {{status.value}}
+          </button>
         </mat-menu>
       </mat-card-actions>
   </mat-card>
