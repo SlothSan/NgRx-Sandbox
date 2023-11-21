@@ -39,7 +39,7 @@ Project Objectives:
 
   - Delete Task: Users can delete to do item from the list, providing a way to remove completed or unwanted tasks. - Done
 
-  - Edit Task: Users can update existing items, providing a way to change the taskName, taskDescription and status.
+  - Edit Task: Users can update existing items, providing a way to change the taskName, taskDescription and status.  -Done
 
 - Mark as important: Users can mark to do item as important, this should update the stying with a red border and bring
   the item to the top of the list (you may need to add an order property to TodoListItem).

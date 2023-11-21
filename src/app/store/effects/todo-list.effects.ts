@@ -15,7 +15,7 @@ export class TodoListEffects {
 
   redirectToListing$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(TodoActions.addTodoItemClicked),
+      ofType(TodoActions.addTodoItemClicked, TodoActions.updateTodoItemDetailsClicked),
       exhaustMap(() =>
         this.router.navigate([``])
       )
