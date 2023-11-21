@@ -37,4 +37,8 @@ export class TaskItemComponent implements OnInit {
     this.store.dispatch(TodoActions.completeTodoItemClicked({ itemId: this.itemDetails.id }))
   }
 
+  public updateStatus(statusValue: string): void {
+    this.store.dispatch(TodoActions.changeTodoItemStatus({itemId: this.itemDetails.id, newStatus: statusValue}))
+  }
+
 }

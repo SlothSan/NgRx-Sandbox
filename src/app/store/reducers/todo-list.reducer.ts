@@ -57,6 +57,19 @@ const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
       ...state,
       todoItems: state.todoItems.filter((curr) => curr.id !== action.itemId)
     }
+  }),
+  on(Actions.changeTodoItemStatus, (state: TodoListPageState, action: {itemId: string, newStatus: string}) => {
+    return {
+      ...state,
+      todoItems: state.todoItems.map((curr) => {
+        if(curr.id !== action.itemId) return curr;
+        else {
+          let updated = JSON.parse(JSON.stringify(curr));
+          updated.statusId = action.newStatus;
+          return updated;
+        }
+      })
+    }
   })
 );
 
