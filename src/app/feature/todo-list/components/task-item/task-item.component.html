@@ -2,58 +2,78 @@
   [class]="'item item-' + itemDetails?.id"
   [ngClass]="{
     'item__status--new': itemDetails?.statusId === TodoItemStatusConstant.NEW,
-    'item__status--in-progress': itemDetails?.statusId === TodoItemStatusConstant.IN_PROGRESS,
-    'item__status--blocked': itemDetails?.statusId === TodoItemStatusConstant.BLOCKED,
-    'item__status--closed': itemDetails?.statusId === TodoItemStatusConstant.COMPLETE,
-    'item__status--cancelled': itemDetails?.statusId === TodoItemStatusConstant.CANCELLED
+    'item__status--in-progress':
+      itemDetails?.statusId === TodoItemStatusConstant.IN_PROGRESS,
+    'item__status--blocked':
+      itemDetails?.statusId === TodoItemStatusConstant.BLOCKED,
+    'item__status--closed':
+      itemDetails?.statusId === TodoItemStatusConstant.COMPLETE,
+    'item__status--cancelled':
+      itemDetails?.statusId === TodoItemStatusConstant.CANCELLED,
+     'item__status--important':
+      itemDetails?.important
   }"
 >
   <mat-card class="example-card">
-      <mat-chip
-        class="item__status"
-        disableRipple="true"
-      >{{ itemDetails?.statusId }}</mat-chip>
+    <mat-chip class="item__status" disableRipple="true">{{
+      itemDetails?.statusId
+    }}</mat-chip>
 
-      <mat-card-header>
-        <mat-card-title class="item__title">{{ itemDetails?.taskName }}</mat-card-title>
-      </mat-card-header>
+    <mat-card-header>
+      <mat-card-title class="item__title">{{
+        itemDetails?.taskName
+      }}</mat-card-title>
+    </mat-card-header>
 
-      <mat-card-content class="item__description">
-        <p>{{ itemDetails?.taskDescription }}</p>
-      </mat-card-content>
+    <mat-card-content class="item__description">
+      <p>{{ itemDetails?.taskDescription }}</p>
+    </mat-card-content>
 
-      <mat-card-actions class="item__actions">
-        <button mat-flat-button color="accent" *ngIf="itemDetails?.statusId !== TodoItemStatusConstant.COMPLETE"
-                (click)="completeItem()">Complete task</button>
+    <mat-card-actions class="item__actions">
+      <button
+        mat-flat-button
+        color="accent"
+        *ngIf="itemDetails?.statusId !== TodoItemStatusConstant.COMPLETE"
+        (click)="completeItem()"
+      >
+        Complete task
+      </button>
 
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>more_vert</mat-icon>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="removeItem()">
+          <mat-icon>delete</mat-icon>
+          <span>Remove Task</span>
         </button>
-
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="removeItem()">
-            <mat-icon>delete</mat-icon>
-            <span>Remove Task</span>
-          </button>
-          <button [matMenuTriggerFor]="editTaskMenu" mat-menu-item>
-            <mat-icon>edit</mat-icon>
-            <span>Change Task Status</span>
-          </button>
-          <button (click)="editTaskInfo()" mat-menu-item>
-            <mat-icon>edit_document</mat-icon>
-            <span>Update Task Details</span>
-          </button>
-          <button mat-menu-item>
-            <mat-icon>priority_high</mat-icon>
-            <span>Mark Important</span>
-          </button>
-        </mat-menu>
-        <mat-menu #editTaskMenu="matMenu">
-          <button mat-menu-item *ngFor="let status of TodoItemStatuses" (click)="updateStatus(status.value)">
-            {{status.value}}
-          </button>
-        </mat-menu>
-      </mat-card-actions>
+        <button [matMenuTriggerFor]="editTaskMenu" mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>Change Task Status</span>
+        </button>
+        <button (click)="editTaskInfo()" mat-menu-item>
+          <mat-icon>edit_document</mat-icon>
+          <span>Update Task Details</span>
+        </button>
+        <button (click)="toggleImportance()" mat-menu-item>
+          <mat-icon>priority_high</mat-icon>
+          <span>Mark Important</span>
+        </button>
+      </mat-menu>
+      <mat-menu #editTaskMenu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let status of TodoItemStatuses"
+          (click)="updateStatus(status.value)"
+        >
+          {{ status.value }}
+        </button>
+      </mat-menu>
+    </mat-card-actions>
   </mat-card>
 </div>
-

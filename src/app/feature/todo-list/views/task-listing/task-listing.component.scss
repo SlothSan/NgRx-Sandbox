@@ -6,3 +6,12 @@
 .grid-col--6 {
   width: 50%;
 }
+
+.grid-col--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.test {
+  order: -1;
+}

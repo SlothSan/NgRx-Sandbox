@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {TaskListingComponent} from "./views/task-listing/task-listing.component";
-import {TaskCreateComponent} from "./views/task-create/task-create.component";
-import {TaskEditComponent} from "./views/task-edit/task-edit.component";
+import { TaskListingComponent } from './views/task-listing/task-listing.component';
+import { TaskCreateComponent } from './views/task-create/task-create.component';
+import { TaskEditComponent } from './views/task-edit/task-edit.component';
 
 const routes: Routes = [
   {
@@ -11,16 +11,16 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    component: TaskCreateComponent
+    component: TaskCreateComponent,
   },
   {
     path: 'edit/:id',
-    component: TaskEditComponent
-  }
+    component: TaskEditComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TodoListRoutingModule { }
+export class TodoListRoutingModule {}

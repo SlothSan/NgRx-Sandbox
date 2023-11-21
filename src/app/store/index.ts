@@ -1,7 +1,4 @@
-import {ActionReducerMap} from "@ngrx/store";
-
-import * as TodoListActions from './actions/todo-list.actions';
-import * as TodoListSelectors from './selectors/todo-list.selector';
+import { ActionReducerMap } from '@ngrx/store';
 import * as TodoListReducers from './reducers/todo-list.reducer';
 
 export interface ApplicationState {
@@ -9,4 +6,4 @@ export interface ApplicationState {
 }
 export const reducers: ActionReducerMap<ApplicationState> = {
   'app.todoList': TodoListReducers.reducer,
-}
+};

@@ -1,25 +1,25 @@
 .item__status--new mat-chip {
-  background-color: #EABA6B;
+  background-color: #eaba6b;
 }
 
 .item__status--in-progress mat-chip {
-  background-color: #42CAFD;
+  background-color: #42cafd;
 }
 
 .item__status--blocked mat-chip {
-  background-color: #E71D36;
+  background-color: #e71d36;
 }
 
 .item__status--closed {
   opacity: 0.3;
 
   mat-chip {
-    background-color: #65B891;
+    background-color: #65b891;
   }
 }
 
 .item__status--cancelled mat-chip {
-  background-color: #F7567C;
+  background-color: #f7567c;
 }
 
 .item {
@@ -57,3 +57,7 @@
   }
 }
 
+.item__status--important  mat-card {
+  border: 1px solid red;
+  order: -1;
+}
