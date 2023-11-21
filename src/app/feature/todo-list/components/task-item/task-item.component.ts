@@ -4,6 +4,7 @@ import { TodoItemStatusConstant } from '../../../../types/constants/todo-list/to
 import * as TodoActions from '../../../../store/actions/todo-list.actions';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { GenericKeyValueInterface } from '../../../../types/interfaces/shared/generic-keyvalue.interface';
 
 @Component({
   selector: 'app-task-item',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class TaskItemComponent implements OnInit {
   @Input() public itemDetails!: TodoListItem;
   protected readonly TodoItemStatusConstant = TodoItemStatusConstant;
-  protected TodoItemStatuses: { key: string; value: string }[];
+  protected TodoItemStatuses: GenericKeyValueInterface[];
 
   constructor(private store: Store, private router: Router) {
     this.TodoItemStatuses = this.TodoItemStatusConstant.statuses();
@@ -23,8 +24,8 @@ export class TaskItemComponent implements OnInit {
     this.TodoItemStatuses = this.returnFilteredStatuses();
   }
 
-  public returnFilteredStatuses(): { key: string; value: string }[] {
-    return this.TodoItemStatuses.filter((curr) => {
+  public returnFilteredStatuses(): GenericKeyValueInterface[] {
+    return this.TodoItemStatuses.filter((curr: GenericKeyValueInterface) => {
       return curr.value !== this.itemDetails?.statusId;
     });
   }
