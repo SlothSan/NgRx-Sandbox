@@ -24,7 +24,6 @@ export class TaskItemComponent implements OnInit {
   }
 
   public returnFilteredStatuses(): { key: string, value: string }[] {
-    console.log('Hello');
     return this.TodoItemStatuses.filter((curr) => {
       return curr.value !== this.itemDetails?.statusId;
     })
