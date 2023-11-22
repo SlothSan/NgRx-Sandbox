@@ -1,7 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 import { TodoListItem } from '../../types/interfaces/todo-list/todo-list.interface';
-import { Update } from '@ngrx/entity';
-
 export const addTodoItemClicked = createAction(
   '[TODO] Add Item To To-do List',
   props<{ todoItemDetails: TodoListItem }>()
@@ -26,7 +24,7 @@ export const changeTodoItemStatusClicked = createAction(
 
 export const updateTodoItemDetailsClicked = createAction(
   '[TODO] Update To-do Item Details',
-  props<{ todo: Update<TodoListItem> }>()
+  props<{ itemId: string; taskName: string; taskDescription: string }>()
 );
 
 // Mark as important clicked
