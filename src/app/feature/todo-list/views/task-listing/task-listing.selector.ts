@@ -1,7 +1,9 @@
 import { createSelector } from '@ngrx/store';
 import { TodoListItem } from '../../../../types/interfaces/todo-list/todo-list.interface';
-import { selectTodoListFeature } from '../../../../store/selectors/todo-list.selector';
-import { TodoListPageState } from '../../../../store/reducers/todo-list.reducer';
+import {
+  selectLoadingState,
+  selectTodoListItemsState,
+} from '../../../../store/selectors/todo-list.selector';
 
 export type TodoListingViewModel = {
   loading: boolean;
@@ -9,11 +11,12 @@ export type TodoListingViewModel = {
 };
 
 export const selectTodoListingViewModel = createSelector(
-  selectTodoListFeature,
-  (todoListFeature: TodoListPageState): TodoListingViewModel => {
+  selectLoadingState,
+  selectTodoListItemsState,
+  (loading: boolean, todoItems: TodoListItem[]): TodoListingViewModel => {
     return {
-      loading: todoListFeature.loading,
-      todoItems: todoListFeature.todoItems,
+      loading,
+      todoItems,
     };
-  },
+  }
 );
