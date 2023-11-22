@@ -3,15 +3,19 @@ import { TodoListItem } from '../../types/interfaces/todo-list/todo-list.interfa
 import * as Actions from './../actions/todo-list.actions';
 import { TodoItemStatusConstant } from '../../types/constants/todo-list/todo-item-status.constant';
 import * as uuid from 'uuid';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
 export const featureKey: 'app.todoList' = 'app.todoList';
 
-export interface TodoListPageState {
+export interface TodoListPageState extends EntityState<TodoListItem> {
   loading: boolean;
   todoItems: TodoListItem[];
 }
 
-const initialState: TodoListPageState = {
+export const todoListAdapter: EntityAdapter<TodoListItem> =
+  createEntityAdapter<TodoListItem>({});
+
+const initialState: TodoListPageState = todoListAdapter.getInitialState({
   loading: false,
   todoItems: [
     {
@@ -29,7 +33,7 @@ const initialState: TodoListPageState = {
       important: true,
     },
   ],
-};
+});
 
 const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
   initialState,
@@ -88,26 +92,29 @@ const sharedReducer: ActionReducer<TodoListPageState> = createReducer(
       };
     }
   ),
-  on(
-    Actions.updateTodoItemDetailsClicked,
-    (
-      state: TodoListPageState,
-      action: { itemId: string; taskName: string; taskDescription: string }
-    ) => {
-      return {
-        ...state,
-        todoItems: state.todoItems.map((curr) => {
-          if (curr.id !== action.itemId) return curr;
-          else {
-            let updated = JSON.parse(JSON.stringify(curr));
-            updated.taskName = action.taskName;
-            updated.taskDescription = action.taskDescription;
-            return updated;
-          }
-        }),
-      };
-    }
-  ),
+  on(Actions.updateTodoItemDetailsClicked, (state, { todo }) => {
+    return todoListAdapter.updateOne(todo, state);
+  }),
+  // on(
+  //   Actions.updateTodoItemDetailsClicked,
+  //   (
+  //     state: TodoListPageState,
+  //     action: { itemId: string; taskName: string; taskDescription: string }
+  //   ) => {
+  //     return {
+  //       ...state,
+  //       todoItems: state.todoItems.map((curr) => {
+  //         if (curr.id !== action.itemId) return curr;
+  //         else {
+  //           let updated = JSON.parse(JSON.stringify(curr));
+  //           updated.taskName = action.taskName;
+  //           updated.taskDescription = action.taskDescription;
+  //           return updated;
+  //         }
+  //       }),
+  //     };
+  //   }
+  // ),
   on(
     Actions.markTodoAsImportantClicked,
     (state: TodoListPageState, action: { itemId: string }) => {
