@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { filter, map, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import {
   selectTodoListingViewModel,
@@ -12,11 +12,19 @@ import { TodoItemStatusConstant } from '../../../../types/constants/todo-list/to
   templateUrl: './task-listing.component.html',
   styleUrls: ['./task-listing.component.scss'],
 })
-export class TaskListingComponent {
+export class TaskListingComponent implements OnInit {
+  public searchTerm: string = '';
   public vm$: Observable<TodoListingViewModel> = this.store.select(
-    selectTodoListingViewModel,
+    selectTodoListingViewModel
   );
+
   constructor(private store: Store) {}
+
+  ngOnInit() {}
+
+  handleSearchTermEvent(eventData: string) {
+    this.searchTerm = eventData;
+  }
 
   protected readonly TodoItemStatusConstant = TodoItemStatusConstant;
 }

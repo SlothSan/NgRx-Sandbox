@@ -38,3 +38,8 @@ export const markTodoAsImportantClicked = createAction(
   '[TODO] Update Todo Importance',
   props<{ itemId: string }>()
 );
+
+export const searchTermUpdated = createAction(
+  '[TODO] Search term updated',
+  props<{ searchTerm: string }>()
+);

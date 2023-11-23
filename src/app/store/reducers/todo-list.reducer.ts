@@ -8,12 +8,14 @@ export const featureKey: 'app.todoList' = 'app.todoList';
 
 export interface TodoListPageState extends EntityState<TodoListItem> {
   loading: boolean;
+  filterTerm: string;
 }
 
 const todoListAdapter: EntityAdapter<TodoListItem> =
   createEntityAdapter<TodoListItem>();
 
 const initialState: TodoListPageState = todoListAdapter.getInitialState({
+  filterTerm: '',
   loading: false,
   ids: [
     '0b09d99c-84d8-4b2d-bf30-9f77dc802c21',
@@ -99,7 +101,14 @@ const reducer = createReducer(
       },
       state
     )
-  )
+  ),
+
+  on(Actions.searchTermUpdated, (state, action) => {
+    return {
+      ...state,
+      filterTerm: action.searchTerm,
+    };
+  })
 );
 
 export function todoListReducer(

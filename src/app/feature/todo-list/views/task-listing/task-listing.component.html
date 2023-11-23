@@ -1,12 +1,12 @@
 <ng-container *ngIf="vm$ | async as vm">
   <h1 style="padding-top:16px; padding-bottom: 16px">NgRx Todo Sandbox application</h1>
-  <app-task-search></app-task-search>
+  <app-task-search (searchTermEvent)="handleSearchTermEvent($event)"></app-task-search>
   <ng-container *ngIf="!vm.loading">
     <ng-container *ngIf="vm.todoItems.length == 0; else taskList">
       <p>Nothing to show, please add a task</p>
     </ng-container>
-
     <ng-template #taskList>
+      {{searchTerm}}
       <div class="grid">
         <div class="grid-col--6">
           <h2>Open tasks</h2>
