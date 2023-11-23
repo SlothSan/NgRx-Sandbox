@@ -42,6 +42,12 @@ export class TaskItemComponent implements OnInit {
     );
   }
 
+  public uncompleteItem(): void {
+    this.store.dispatch(
+      TodoActions.uncompleteTodoItemClicked({ itemId: this.itemDetails.id })
+    );
+  }
+
   public updateStatus(statusValue: string): void {
     this.store.dispatch(
       TodoActions.changeTodoItemStatusClicked({

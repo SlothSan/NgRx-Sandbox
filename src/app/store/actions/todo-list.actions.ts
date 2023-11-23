@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { TodoListItem } from '../../types/interfaces/todo-list/todo-list.interface';
+
 export const addTodoItemClicked = createAction(
   '[TODO] Add Item To To-do List',
   props<{ todoItemDetails: TodoListItem }>()
@@ -7,6 +8,11 @@ export const addTodoItemClicked = createAction(
 
 export const completeTodoItemClicked = createAction(
   '[TODO] Mark To-do Item As Complete',
+  props<{ itemId: string }>()
+);
+
+export const uncompleteTodoItemClicked = createAction(
+  '[TODO] Mark To-do Item As New',
   props<{ itemId: string }>()
 );
 

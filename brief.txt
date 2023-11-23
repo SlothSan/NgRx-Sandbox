@@ -69,12 +69,6 @@ Optional Enhancements:
 
 - Drag and Drop Reordering: Allow users to reorder to do items by dragging and dropping them.
 
-- Offline Service Worker: This application could work offline, look into Angular Service worker and see if you can
-  get it working offline.
-
-
-
-
 
 Further reading:
 - Rockpool NgRx guide [https://dev.azure.com/rockpooldigital/Rockpool/_wiki/wikis/Rockpool.wiki/1543/NgRx-Best-Practice]
