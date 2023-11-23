@@ -8,9 +8,9 @@ export class TodoItemStatusConstant {
   public static BLOCKED: string = 'Blocked';
 
   public static statuses(): GenericKeyValueInterface[] {
-    return Object.entries(this).map(([key, value]) => ({ key, value })) as {
-      key: string;
-      value: string;
-    }[];
+    return Object.entries(this).map(([key, value]) => ({
+      key,
+      value,
+    })) as GenericKeyValueInterface[];
   }
 }

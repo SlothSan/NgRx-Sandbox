@@ -4,12 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./feature/todo-list/todo-list.module').then((m) => m.TodoListModule)
-  }
+    loadChildren: () =>
+      import('./feature/todo-list/todo-list.module').then(
+        (m) => m.TodoListModule,
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

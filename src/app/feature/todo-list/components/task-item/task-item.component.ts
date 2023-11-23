@@ -54,4 +54,12 @@ export class TaskItemComponent implements OnInit {
   public editTaskInfo(): void {
     this.router.navigate(['/edit', this.itemDetails.id]);
   }
+
+  public toggleImportance(): void {
+    this.store.dispatch(
+      TodoActions.markTodoAsImportantClicked({
+        itemId: this.itemDetails.id,
+      })
+    );
+  }
 }

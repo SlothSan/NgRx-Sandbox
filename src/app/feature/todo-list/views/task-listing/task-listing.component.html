@@ -8,21 +8,33 @@
       <div class="grid">
         <div class="grid-col--6">
           <h2>Open tasks</h2>
-          <ng-container *ngFor="let item of vm.todoItems; let i = index">
-            <app-task-item [itemDetails]="item" *ngIf="item.statusId !== TodoItemStatusConstant.COMPLETE"></app-task-item>
-          </ng-container>
-
-          <button mat-flat-button color="primary" routerLink="create">Add new task</button><br /><br />
+          <div class="grid-col--container">
+            <ng-container class="grid-col--container" *ngFor="let item of vm.todoItems; let i = index">
+              <app-task-item
+                [itemDetails]="item"
+                [ngClass]="{'test': item.important}"
+                *ngIf="item.statusId !== TodoItemStatusConstant.COMPLETE"
+              ></app-task-item>
+            </ng-container>
+          </div>
+          <button mat-flat-button color="primary" routerLink="create">
+            Add new task</button
+          ><br /><br />
         </div>
-
 
         <div class="grid-col--6">
           <h2>Complete tasks</h2>
-          <ng-container *ngFor="let item of vm.todoItems; let i = index">
-            <app-task-item [itemDetails]="item" *ngIf="item.statusId === TodoItemStatusConstant.COMPLETE"></app-task-item>
-          </ng-container>
+          <div class="grid-col--container">
+            <ng-container *ngFor="let item of vm.todoItems; let i = index">
+              <app-task-item
+                [itemDetails]="item"
+                [ngClass]="{'test': item.important}"
+                *ngIf="item.statusId === TodoItemStatusConstant.COMPLETE"
+              ></app-task-item>
+            </ng-container>
+          </div>
         </div>
-      </div>
-    </ng-template><br />
+      </div> </ng-template
+    ><br />
   </ng-container>
 </ng-container>

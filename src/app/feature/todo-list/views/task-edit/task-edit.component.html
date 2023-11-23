@@ -3,18 +3,34 @@
   <form class="update-form">
     <mat-form-field>
       <mat-label>Task name</mat-label>
-      <input type="text" matInput [formControl]="taskNameFormControl" placeholder="Enter a task name">
+      <input
+        type="text"
+        matInput
+        [formControl]="taskNameFormControl"
+        placeholder="Enter a task name"
+      />
       <mat-error *ngIf="taskNameFormControl.hasError('required')">
         Please enter a task name!
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Task description</mat-label>
-      <textarea matInput [formControl]="taskDescriptionFormControl" placeholder="Enter a task description"></textarea>
+      <textarea
+        matInput
+        [formControl]="taskDescriptionFormControl"
+        placeholder="Enter a task description"
+      ></textarea>
       <mat-error *ngIf="taskDescriptionFormControl.hasError('required')">
         Please enter a task description!
       </mat-error>
     </mat-form-field>
-    <button (click)="updateTask()" [disabled]="!form?.valid" mat-flat-button color="accent">Save changes</button>
+    <button
+      (click)="updateTask()"
+      [disabled]="!form?.valid"
+      mat-flat-button
+      color="accent"
+    >
+      Save changes
+    </button>
   </form>
 </mat-card>
