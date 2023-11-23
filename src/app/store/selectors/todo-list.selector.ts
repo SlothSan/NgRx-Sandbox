@@ -23,11 +23,3 @@ export const selectTodoListFilterState = createSelector(
     return state.filterTerm;
   }
 );
-
-// export const selectTodoListItemsStateFiltered = createSelector(
-//   selectTodoListFeature,
-//   (state: TodoListPageState) => {
-//     const arr = Object.values(state.entities) as TodoListItem[];
-//     return arr.filter((curr) => curr.taskName.includes('QA'));
-//   }
-// );

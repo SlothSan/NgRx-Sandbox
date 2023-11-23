@@ -1,16 +1,7 @@
-import {
-  Component,
-  DestroyRef,
-  EventEmitter,
-  inject,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
-import { Action } from 'rxjs/internal/scheduler/Action';
 import * as TodoActions from '../../../../store/actions/todo-list.actions';
 
 @Component({
@@ -21,7 +12,6 @@ import * as TodoActions from '../../../../store/actions/todo-list.actions';
 export class TaskSearchComponent implements OnInit {
   destroyRef = inject(DestroyRef);
   private form?: FormGroup;
-  @Output() searchTermEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private store: Store) {}
 
