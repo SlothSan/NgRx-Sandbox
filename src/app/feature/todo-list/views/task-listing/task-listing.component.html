@@ -1,4 +1,6 @@
 <ng-container *ngIf="vm$ | async as vm">
+  <h1 style="padding-top:16px; padding-bottom: 16px">NgRx Todo Sandbox application</h1>
+  <app-task-search></app-task-search>
   <ng-container *ngIf="!vm.loading">
     <ng-container *ngIf="vm.todoItems.length == 0; else taskList">
       <p>Nothing to show, please add a task</p>
@@ -18,8 +20,10 @@
             </ng-container>
           </div>
           <button mat-flat-button color="primary" routerLink="create">
-            Add new task</button
-          ><br /><br />
+            Add new task
+          </button
+          >
+          <br/><br/>
         </div>
 
         <div class="grid-col--6">
@@ -34,7 +38,9 @@
             </ng-container>
           </div>
         </div>
-      </div> </ng-template
-    ><br />
+      </div>
+    </ng-template
+    >
+    <br/>
   </ng-container>
 </ng-container>

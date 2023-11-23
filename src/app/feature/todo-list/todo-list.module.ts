@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskEditComponent } from './views/task-edit/task-edit.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TaskSearchComponent } from './components/task-search/task-search.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     TaskCreateComponent,
     TaskItemComponent,
     TaskEditComponent,
+    TaskSearchComponent,
   ],
   exports: [TaskListingComponent, TaskCreateComponent, TaskItemComponent],
   imports: [
