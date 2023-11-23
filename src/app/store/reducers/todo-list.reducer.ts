@@ -3,7 +3,6 @@ import { EntityState, createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 import { TodoListItem } from '../../types/interfaces/todo-list/todo-list.interface';
 import * as Actions from './../actions/todo-list.actions';
 import { TodoItemStatusConstant } from '../../types/constants/todo-list/todo-item-status.constant';
-import * as uuid from 'uuid';
 
 export const featureKey: 'app.todoList' = 'app.todoList';
 
@@ -50,6 +49,16 @@ const reducer = createReducer(
       {
         id: action.itemId,
         changes: { statusId: TodoItemStatusConstant.COMPLETE },
+      },
+      state
+    )
+  ),
+
+  on(Actions.uncompleteTodoItemClicked, (state, action) =>
+    todoListAdapter.updateOne(
+      {
+        id: action.itemId,
+        changes: { statusId: TodoItemStatusConstant.NEW },
       },
       state
     )

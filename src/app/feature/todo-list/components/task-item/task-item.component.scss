@@ -11,8 +11,6 @@
 }
 
 .item__status--closed {
-  opacity: 0.3;
-
   mat-chip {
     background-color: #65b891;
   }
@@ -57,7 +55,7 @@
   }
 }
 
-.item__status--important  mat-card {
+.item__status--important mat-card {
   border: 1px solid red;
   order: -1;
 }
