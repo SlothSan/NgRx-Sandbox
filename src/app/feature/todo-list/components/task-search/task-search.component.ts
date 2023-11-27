@@ -26,7 +26,7 @@ export class TaskSearchComponent implements OnInit {
 
   buildForm() {
     this.form = new FormGroup({
-      taskSearchInput: new FormControl('', Validators.minLength(3)),
+      taskSearchInput: new FormControl(''),
     });
   }
 

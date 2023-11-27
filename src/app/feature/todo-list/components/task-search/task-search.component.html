@@ -2,8 +2,5 @@
   <mat-form-field>
     <mat-label>Search Todos</mat-label>
     <input matInput type="search" placeholder="Enter a task name" [formControl]="taskSearchInputFormControl"/>
-    <mat-error *ngIf="taskSearchInputFormControl.hasError('minlength')">
-      Please enter a longer search term.
-    </mat-error>
   </mat-form-field>
 </div>

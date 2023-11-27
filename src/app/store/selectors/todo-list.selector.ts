@@ -23,3 +23,10 @@ export const selectTodoListFilterState = createSelector(
     return state.filterTerm;
   }
 );
+
+export const selectTodoListFilterTypeState = createSelector(
+  selectTodoListFeature,
+  (state: TodoListPageState) => {
+    return state.filterType;
+  }
+);

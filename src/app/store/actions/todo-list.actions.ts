@@ -40,6 +40,11 @@ export const markTodoAsImportantClicked = createAction(
 );
 
 export const searchTermUpdated = createAction(
-  '[TODO] Search term updated',
+  '[TODO] Search Term Updated',
   props<{ searchTerm: string }>()
+);
+
+export const filterUpdated = createAction(
+  '[TODO] Status Filter Changed',
+  props<{ filterType: string }>()
 );

@@ -3,6 +3,7 @@ import { TodoListItem } from '../../../../types/interfaces/todo-list/todo-list.i
 import {
   selectLoadingState,
   selectTodoListFilterState,
+  selectTodoListFilterTypeState,
   selectTodoListItemsState,
 } from '../../../../store/selectors/todo-list.selector';
 
@@ -16,20 +17,24 @@ export const selectTodoListingViewModel = createSelector(
   selectLoadingState,
   selectTodoListItemsState,
   selectTodoListFilterState,
+  selectTodoListFilterTypeState,
   (
     loading: boolean,
     todoItems: TodoListItem[],
-    filterTerm: string
+    filterTerm: string,
+    filterType: string | null
   ): TodoListingViewModel => {
-    const filteredTodoItems =
-      filterTerm.length >= 3
-        ? todoItems.filter((item: TodoListItem) => {
-            return item.taskName
-              .toLowerCase()
-              .includes(filterTerm.toLowerCase());
-          })
-        : todoItems;
-
+    let filteredTodoItems = filterTerm.length
+      ? todoItems.filter((item: TodoListItem) => {
+          return item.taskName.toLowerCase().includes(filterTerm.toLowerCase());
+        })
+      : todoItems;
+    if (filterType) {
+      filteredTodoItems = filteredTodoItems.filter((curr) => {
+        if (filterType !== 'None') return curr.statusId === filterType;
+        return curr;
+      });
+    }
     return {
       loading,
       todoItems: filteredTodoItems,
