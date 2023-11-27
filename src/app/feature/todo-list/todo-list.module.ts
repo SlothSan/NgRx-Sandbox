@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TaskEditComponent } from './views/task-edit/task-edit.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TaskSearchComponent } from './components/task-search/task-search.component';
+import { TaskFilterComponent } from './components/task-filter/task-filter.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { TaskSearchComponent } from './components/task-search/task-search.compon
     TaskItemComponent,
     TaskEditComponent,
     TaskSearchComponent,
+    TaskFilterComponent,
   ],
   exports: [TaskListingComponent, TaskCreateComponent, TaskItemComponent],
   imports: [
@@ -37,6 +40,7 @@ import { TaskSearchComponent } from './components/task-search/task-search.compon
     MatInputModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatSelectModule,
   ],
 })
 export class TodoListModule {}

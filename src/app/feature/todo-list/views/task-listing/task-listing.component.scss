@@ -3,6 +3,11 @@
   display: flex;
 }
 
+.search-filter--container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .grid-col--6 {
   width: 50%;
 }
