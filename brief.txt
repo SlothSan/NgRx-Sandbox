@@ -57,7 +57,7 @@ Project Objectives:
 Optional Enhancements:
 - Improve listing page:
   - Filtering: Implement filtering options to allow users to view all todos, completed todos, or active (uncompleted)
-    todos. This can be achieved using filter buttons (e.g., All, Active, Completed). -
+    todos. This can be achieved using filter buttons (e.g., All, Active, Completed). - - done for filter.
 
   - Search: Implement a search bar to enable users to find specific tasks. - done for search
 
