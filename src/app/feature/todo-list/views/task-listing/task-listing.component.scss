@@ -3,6 +3,13 @@
   display: flex;
 }
 
+.search-filter--container {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  align-items: center;
+}
+
 .grid-col--6 {
   width: 50%;
 }

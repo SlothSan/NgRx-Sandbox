@@ -16,3 +16,17 @@ export const selectTodoListItemsState = createSelector(
     return Object.values(state.entities) as TodoListItem[]; // Extract entities as array
   }
 );
+
+export const selectTodoListFilterState = createSelector(
+  selectTodoListFeature,
+  (state: TodoListPageState) => {
+    return state.filterTerm;
+  }
+);
+
+export const selectTodoListFilterTypeState = createSelector(
+  selectTodoListFeature,
+  (state: TodoListPageState) => {
+    return state.filterType;
+  }
+);

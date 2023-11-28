@@ -57,9 +57,9 @@ Project Objectives:
 Optional Enhancements:
 - Improve listing page:
   - Filtering: Implement filtering options to allow users to view all todos, completed todos, or active (uncompleted)
-    todos. This can be achieved using filter buttons (e.g., All, Active, Completed).
+    todos. This can be achieved using filter buttons (e.g., All, Active, Completed). - - done for filter.
 
-  - Search: Implement a search bar to enable users to find specific tasks.
+  - Search: Implement a search bar to enable users to find specific tasks. - done for search
 
 - Task Due date & time: Add a date/time picker, as this project uses Angular Material you can use the mat component. You
   can then add styling for items that are overdue.

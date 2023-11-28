@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import {
@@ -14,8 +14,9 @@ import { TodoItemStatusConstant } from '../../../../types/constants/todo-list/to
 })
 export class TaskListingComponent {
   public vm$: Observable<TodoListingViewModel> = this.store.select(
-    selectTodoListingViewModel,
+    selectTodoListingViewModel
   );
+
   constructor(private store: Store) {}
 
   protected readonly TodoItemStatusConstant = TodoItemStatusConstant;
