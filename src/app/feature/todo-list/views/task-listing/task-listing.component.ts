@@ -12,14 +12,12 @@ import { TodoItemStatusConstant } from '../../../../types/constants/todo-list/to
   templateUrl: './task-listing.component.html',
   styleUrls: ['./task-listing.component.scss'],
 })
-export class TaskListingComponent implements OnInit {
+export class TaskListingComponent {
   public vm$: Observable<TodoListingViewModel> = this.store.select(
     selectTodoListingViewModel
   );
 
   constructor(private store: Store) {}
-
-  ngOnInit() {}
 
   protected readonly TodoItemStatusConstant = TodoItemStatusConstant;
 }
